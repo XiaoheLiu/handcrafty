@@ -1,7 +1,11 @@
+type Cat {
+    name: String!
+}
+
 type Query {
-    hello: String
+    cats: [Cat]!
 }
 
 type Mutation {
-    hi: String
+    createCat(name: String!): Cat
 }
