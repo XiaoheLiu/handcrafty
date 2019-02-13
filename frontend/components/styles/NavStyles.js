@@ -18,7 +18,7 @@ const NavStyles = styled.ul`
     background: none;
     border: 0;
     cursor: pointer;
-    @media (max-width: 700px) {
+    @media (max-width: 500px) {
       font-size: 10px;
       padding: 0 10px;
     }
@@ -51,12 +51,12 @@ const NavStyles = styled.ul`
       &:after {
         width: calc(100% - 60px);
       }
-      @media (max-width: 700px) {
+      @media (max-width: 750px) {
         width: calc(100% - 10px);
       }
     }
   }
-  @media (max-width: 1300px) {
+  @media (max-width: ${props => props.theme.maxWidth}) {
     border-top: 1px solid ${props => props.theme.lightgrey};
     width: 100%;
     justify-content: center;
