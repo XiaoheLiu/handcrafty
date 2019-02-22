@@ -9,4 +9,6 @@ type Mutation {
     createItem(title: String, description: String, price: Int, image: String, largeImage: String): Item!
     # TODO : add update for image and largeImage
     updateItem(id: ID!, title: String, description: String, price: Int): Item!
+
+    deleteItem(id: ID!): Item
 }
