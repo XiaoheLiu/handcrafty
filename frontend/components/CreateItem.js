@@ -54,15 +54,10 @@ class CreateItem extends Component {
       }
     );
     const file = await res.json();
-    // this.setState({
-    //   image: file.secure_url,
-    //   largeImage: file.eager[0].secure_url
-    // });
     this.setState({
       image: file.secure_url,
       largeImage: file.eager[0].secure_url
     });
-    console.log("file: ", file);
   };
 
   render() {
