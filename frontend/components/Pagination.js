@@ -27,7 +27,7 @@ const Pagination = ({ page }) => (
         <PaginationStyles>
           <Head>
             <title>
-              Sick Fits! Page {page} of {pages}
+              Handcrafty| Page {page} of {pages}
             </title>
           </Head>
           <Link
