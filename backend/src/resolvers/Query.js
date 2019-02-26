@@ -5,7 +5,8 @@ const Query = {
   //   return ctx.db.query.items();
   // }
   items: forwardTo("db"),
-  item: forwardTo("db")
+  item: forwardTo("db"),
+  itemsConnection: forwardTo("db")
 };
 
 module.exports = Query;
