@@ -109,7 +109,7 @@ class CreateItem extends Component {
                 />
               </label>
               <label htmlFor="price">
-                Price
+                Price ({formatMoney(this.state.price)})
                 <input
                   type="number"
                   id="price"
@@ -120,6 +120,7 @@ class CreateItem extends Component {
                   onChange={this.handleChange}
                 />
               </label>
+              <p />
               <label htmlFor="description">
                 Description
                 <textarea
