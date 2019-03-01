@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { randomBytes } = require('crypto');
 const { promisify } = require('util');
+const { transport, makeEmail } = require('../mail');
 
 const Mutations = {
   async createItem(parent, args, ctx, info) {
@@ -96,7 +97,21 @@ const Mutations = {
       where: { email },
       data: { resetToken, resetTokenExpiry },
     });
-    // 4. Return success message
+    // 4. Send out the reset email
+    const resetLink = `${
+      process.env.FRONTEND_URL
+    }/reset?resetToken=${resetToken}`;
+    const mailRes = await transport.sendMail({
+      from: 'sdathenaliu@gmail.com',
+      to: user.email,
+      subject: 'Reset Your Password for Handcrafty',
+      html: makeEmail(
+        user.name,
+        `Here is the link to reset your password! \n\n
+      <a href='${resetLink}'> Click here to reset! </a>`
+      ),
+    });
+    // 5. Return success message
     return { message: 'Please check your email' };
   },
 
