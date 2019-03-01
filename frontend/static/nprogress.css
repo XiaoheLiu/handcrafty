@@ -21,7 +21,7 @@
   right: 0px;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px #b2d8d8, 0 0 5px #66b2b2;
+  box-shadow: 0 0 10px #2FBFA4, 0 0 5px #C1EE7B;
   opacity: 1.0;
 
   -webkit-transform: rotate(3deg) translate(0px, -4px);
@@ -44,8 +44,8 @@
   box-sizing: border-box;
 
   border: solid 2px transparent;
-  border-top-color: teal;
-  border-left-color: teal;
+  border-top-color: #5ED199;;
+  border-left-color: #5ED199;
   border-radius: 50%;
 
   -webkit-animation: nprogress-spinner 400ms linear infinite;
