@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { Mutation, Query } from "react-apollo";
-import gql from "graphql-tag";
-import Form from "./styles/Form";
-import formatMoney from "../lib/formatMoney";
-import ErrorMessage from "./ErrorMessage";
+import React, { Component } from 'react';
+import { Mutation, Query } from 'react-apollo';
+import gql from 'graphql-tag';
+import Form from './styles/Form';
+import formatMoney from '../lib/formatMoney';
+import ErrorMessage from './ErrorMessage';
 
 const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
@@ -42,7 +42,7 @@ class UpdateItem extends Component {
 
   handleChange = e => {
     const { name, type, value } = e.target;
-    const val = type === "number" ? parseFloat(value) : value;
+    const val = type === 'number' ? parseFloat(value) : value;
     this.setState({ [name]: val });
   };
 
@@ -51,8 +51,10 @@ class UpdateItem extends Component {
     const res = await updateItemMutation({
       variables: {
         id: this.props.id,
-        ...this.state
-      }
+        ...this.state,
+      },
+    }).catch(err => {
+      alert(err.message);
     });
   };
 
@@ -106,7 +108,7 @@ class UpdateItem extends Component {
                       />
                     </label>
                     <button type="submit">
-                      Sav{loading ? "ing" : "e"} Changes
+                      Sav{loading ? 'ing' : 'e'} Changes
                     </button>
                   </fieldset>
                 </Form>
