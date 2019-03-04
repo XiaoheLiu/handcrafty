@@ -9,7 +9,7 @@ const PleaseSignIn = props => (
       if (!data.me) {
         return (
           <div>
-            <p>Please sign in before selling your products!</p>
+            <p>Please sign in to do that!</p>
             <Signin />
           </div>
         );
