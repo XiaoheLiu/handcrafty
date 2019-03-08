@@ -250,6 +250,32 @@ const Mutations = {
       info
     );
   },
+
+  async removeFromCart(parent, args, ctx, info) {
+    // Find the cart item
+    const cartItemDelete = await ctx.db.query.cartItem(
+      {
+        where: {
+          id: args.id,
+        },
+      },
+      `{id, user {id}}`
+    );
+    if (!cartItemDelete) throw new Error('No cart item found!');
+    // Check if they own the item
+    if (cartItemDelete.user.id !== ctx.request.userId) {
+      throw new Error('This item is not on your cart!');
+    }
+    // Delete that cart item
+    return ctx.db.mutation.deleteCartItem(
+      {
+        where: {
+          id: args.id,
+        },
+      },
+      info
+    );
+  },
 };
 
 module.exports = Mutations;
