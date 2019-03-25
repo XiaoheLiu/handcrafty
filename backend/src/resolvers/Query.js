@@ -42,6 +42,18 @@ const Query = {
     // Return order
     return order;
   },
+
+  async orders(parent, args, ctx, info) {
+    const { userId } = ctx.request;
+    if (!userId) throw new Error('Please login to see your order!');
+    const orders = await ctx.db.query.orders(
+      {
+        where: { user: { id: userId } },
+      },
+      info
+    );
+    return orders;
+  },
 };
 
 module.exports = Query;

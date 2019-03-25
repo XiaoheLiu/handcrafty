@@ -52,7 +52,7 @@ class Order extends Component {
                 <span>{this.props.id}</span>
               </p>
               <p>
-                <span>Charge:</span>
+                <span>Charge ID:</span>
                 <span>{order.charge}</span>
               </p>
               <p>
