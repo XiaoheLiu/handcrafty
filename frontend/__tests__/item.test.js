@@ -1,4 +1,5 @@
 import { shallow } from 'enzyme';
+import toJSON from 'enzyme-to-json';
 import formatMoney from '../lib/formatMoney';
 import ItemComponent from '../components/Item';
 
@@ -12,6 +13,13 @@ const fakeItem = {
 };
 
 describe('<Item/>', () => {
+  // Snapshot testing
+  it('renders and matches the snapshot', () => {
+    const wrapper = shallow(<ItemComponent item={fakeItem} />);
+    expect(toJSON(wrapper)).toMatchSnapshot();
+  });
+
+  // Shallow rendering test
   it('renders the image properly', () => {
     const wrapper = shallow(<ItemComponent item={fakeItem} />);
     const img = wrapper.find('img');
