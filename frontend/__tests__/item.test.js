@@ -37,6 +37,7 @@ describe('<Item/>', () => {
   // Skipped because buttonList is rendered through render props within <User/>
   xit('renders out the buttons properly', () => {
     const wrapper = shallow(<ItemComponent item={fakeItem} />);
+
     const buttonList = wrapper.find('.buttonList');
     expect(buttonList.children()).toHaveLength(3);
     expect(buttonList.find('Link').exists()).toBe(true);
