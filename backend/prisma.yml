@@ -1,6 +1,7 @@
-endpoint: ${env:PRISMA_ENDPOINT}
-# secret:${env:PRISMA_SECRET}
+#endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: https://handcrafty-686a34eb52.herokuapp.com/handcrafty-prod/prod
 datamodel: datamodel.prisma
+secret: ${env:PRISMA_SECRET}
 hooks:
-    post-deploy:
-        - graphql get-schema -p prisma
+  post-deploy:
+    - graphql get-schema -p prisma
